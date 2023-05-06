@@ -19,9 +19,9 @@ public class MainActivity extends AppCompatActivity {
     private ImageView example_img,main_image ,first_ImageView ,ante_example_img,antoma_example_img,antom_example_img,antona_example_img ;
     MediaPlayer anta_sound,ante_sound,antoma_sound,antom_sound,antona_sound,titel_sound,explain_sound,anta_used_sound ;
     private LinearLayout myLinearLayout,exampleLinearLayout,my_firstLinearLayout,ante_Layout,antoma_Layout,antom_Layout,antona_Layout,
-            ante_exampels_layout,antoma_exampels_layout,antom_exampels_layout,antona_exampels_layout;
+            ante_exampels_layout,antoma_exampels_layout,antom_exampels_layout,antona_exampels_layout,quiz_layout;
    private Button anta_Button,anta_Button2 ,ante_Button,ante_Button2, antoma_Button,antoma_Button2,antom_Button,antom_Button2,
-           antona_Button ,antona_Button2, example_Button,ante_example_button,antoma_example_button,antom_example_button,antona_example_button;
+           antona_Button ,antona_Button2, example_Button,ante_example_button,antoma_example_button,antom_example_button,antona_example_button,quiz_button;
 
 //   private TextView example_view,uses_view;
     private TextView    titel_view ,
@@ -80,6 +80,9 @@ public class MainActivity extends AppCompatActivity {
 
         antona_exampels_layout = findViewById(R.id.antona_exampels_layout);
         antona_exampels_layout.setVisibility(View.GONE);
+
+        quiz_layout= findViewById(R.id.quiz_layout);
+        quiz_layout.setVisibility(View.GONE);
 
         // --------------- ImageViews -----------------------
         example_img = findViewById(R.id.example_imageview);
@@ -164,6 +167,8 @@ public class MainActivity extends AppCompatActivity {
         antoma_example_button = findViewById(R.id.antoma_example_button);
         antom_example_button = findViewById(R.id.antom_example_button);
         antona_example_button = findViewById(R.id.antona_example_button);
+
+        quiz_button = findViewById(R.id.quiz_button);
 
 
 
@@ -557,7 +562,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        }
+        //*******************************************************
+        //quiz
+        quiz_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                quiz_layout.setVisibility(View.VISIBLE);
+                my_firstLinearLayout.setVisibility(View.GONE);
+
+            }
+        });
+
+
+    }
 
         // ************************ Functions *******************************
         public void changeButtonColor(Button button, String color) {
