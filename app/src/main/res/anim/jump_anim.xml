@@ -1,20 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
-<set xmlns:android="http://schemas.android.com/apk/res/android"
-    android:fillAfter="true">
-
-    <!-- Animation to move the TextView from the top to the end -->
+<set xmlns:android="http://schemas.android.com/apk/res/android">
     <translate
         android:fromYDelta="0"
-        android:toYDelta="100"
-        android:duration="200"
-        android:interpolator="@android:anim/accelerate_decelerate_interpolator" />
+        android:toYDelta="-50"
+        android:duration="300" />
 
-    <!-- Animation to move the TextView from the end to the middle -->
     <translate
-        android:fromYDelta="100"
+        android:fromYDelta="-50"
         android:toYDelta="0"
-        android:duration="200"
-        android:startOffset="200"
-        android:interpolator="@android:anim/accelerate_decelerate_interpolator" />
+        android:startOffset="300"
+        android:duration="300" />
 
+    <translate
+        android:fromYDelta="0"
+        android:toYDelta="-25"
+        android:startOffset="600"
+        android:duration="150" />
+
+    <translate
+        android:fromYDelta="-25"
+        android:toYDelta="0"
+        android:startOffset="750"
+        android:duration="150" />
 </set>
