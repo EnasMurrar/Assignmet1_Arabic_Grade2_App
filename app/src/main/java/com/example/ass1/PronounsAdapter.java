@@ -1,5 +1,7 @@
 package com.example.ass1;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,17 +15,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class PronounsAdapter extends RecyclerView.Adapter<PronounsAdapter.ViewHolder>{
 
-    private final RecycleViewInterface recycleViewInterface;
+    private RecycleViewInterface recycleViewInterface;
 
 
     private String[] captions;
     private int[] imageIds;
     private Pronouns [] pro;
 
-    public PronounsAdapter(String[] captions, int[] imageIds,RecycleViewInterface recycleViewInterface){
+    private Context context;
+
+
+    public PronounsAdapter(RecycleViewInterface recycleViewInterface, String[] captions, int[] imageIds,Context context) {
+        this.recycleViewInterface = recycleViewInterface;
         this.captions = captions;
         this.imageIds = imageIds;
-        this.recycleViewInterface=recycleViewInterface;
+        this.context = context;
+
     }
 
     @Override
@@ -48,6 +55,9 @@ public class PronounsAdapter extends RecyclerView.Adapter<PronounsAdapter.ViewHo
             @Override
             public void onClick(View v){
                 //
+                // Start the second activity
+                Intent intent = new Intent(context, MainActivity.class);
+                context.startActivity(intent);
             }
         });
     }
@@ -73,6 +83,7 @@ public class PronounsAdapter extends RecyclerView.Adapter<PronounsAdapter.ViewHo
                             recycleViewInterface.onItemClick(pos);
                         }
                     }
+                   // recycleViewInterface.onItemClick(getAdapterPosition());
 
                 }
             });
